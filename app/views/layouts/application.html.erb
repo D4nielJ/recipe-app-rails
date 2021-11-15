@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <div class="session_box">
+      <%= link_to 'Register', new_user_registration_path %>
+      <%= link_to 'Sign in', new_user_session_path %>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    </div>
     <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>  
   </body>
 </html>
