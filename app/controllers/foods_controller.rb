@@ -20,7 +20,16 @@ class FoodsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    food = Food.find(params[:id])
+    if food.destroy
+      flash[:notice] = 'Ingredient removed'
+      redirect_to foods_path
+    else
+      flash[:error] = food.errors.messages
+      render :index
+    end
+  end
 
   private
 
