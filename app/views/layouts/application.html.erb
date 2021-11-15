@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <header>
+    <header class="header">
       <h1><%= link_to 'Recipes App', root_path %></h1>
-      <nav>
+      <nav class="header__nav">
         <ul>
           <li><%= link_to 'Ingredients', foods_path %></li>
           <li><%= link_to 'Recipes', recipes_path %></li>
@@ -24,7 +24,9 @@
         </ul>
       </nav>
     </header>
-    <%= yield %>
+    <main class="container">
+      <%= yield %>
+    </main>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
