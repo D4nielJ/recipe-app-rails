@@ -10,11 +10,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Apple</td>
-      <td>Grams</td>
-      <td>$5</td>
-      <td><%= link_to 'Delete', food_path(1), method: :delete %></td>
-    </tr>
+    <% @foods.each do |food| %>
+      <%= render 'foods_row', food: food %>
+    <% end %>
   </tbody>
 </table>
