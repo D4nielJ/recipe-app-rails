@@ -11,13 +11,23 @@
   </head>
 
   <body>
-    <div class="session_box">
-      <%= link_to 'Register', new_user_registration_path %>
-      <%= link_to 'Sign in', new_user_session_path %>
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    </div>
-    <%= yield %>
+    <header class="header">
+      <h1><%= link_to 'Recipes App', root_path %></h1>
+      <nav class="header__nav">
+        <ul>
+          <li><%= link_to 'Ingredients', foods_path %></li>
+          <li><%= link_to 'Recipes', recipes_path %></li>
+          <li><%= link_to 'Shopping List', shopping_path %></li>
+          <li><%= link_to 'Register', new_user_registration_path %></li>
+          <li><%= link_to 'Sign in', new_user_session_path %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <%= yield %>
+    </main>
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>  
+    <p class="alert"><%= alert %></p>
   </body>
 </html>
