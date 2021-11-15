@@ -1,1 +1,24 @@
 <h1>Recipes index</h1>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li class="recipe_container">
+      <div>
+        <div>
+          <%= recipe.name %>
+        </div>
+        <div>
+          <%= link_to 'REMOVE', "recipes/#{recipe.id}", data: { method: :delete } %>
+        </div>
+      </div>
+      <div>
+        <%= recipe.description %>
+      </div>
+    </li>
+  <% end %>
+  <% if @recipes.length == 0 %>
+    <li>
+      <h2>There is no recipes yet. Please create one.</h2>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'Add Recipe', "recipes/new", class: 'add_comment_btn' %>
