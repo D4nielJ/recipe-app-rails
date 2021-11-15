@@ -3,6 +3,5 @@ class UsersController < ApplicationController
     @user = User.all[0]
   end
 
-  def show
-  end
+  def show; end
 end
