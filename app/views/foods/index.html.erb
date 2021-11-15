@@ -1,1 +1,20 @@
-<h1>Foods index</h1>
+<%= link_to 'Add Food', new_food_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Measurement unit</th>
+      <th>Unit price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apple</td>
+      <td>Grams</td>
+      <td>$5</td>
+      <td><%= link_to 'Delete', food_path(1), method: :delete %></td>
+    </tr>
+  </tbody>
+</table>
