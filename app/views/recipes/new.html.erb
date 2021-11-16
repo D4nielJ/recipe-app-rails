@@ -6,11 +6,11 @@
   </div>
   <div class="field">
     <%= form.label :preparation_time %><br>
-    <%= form.number_field :preparation_time, :required => true %>
+    <%= form.number_field :preparation_time, min: 0, :required => true %>
   </div>
   <div class="field">
     <%= form.label :cooking_time %><br>
-    <%= form.number_field :cooking_time, :required => true %>
+    <%= form.number_field :cooking_time, min: 0, :required => true %>
   </div>
   <div class="field">
     <%= form.label :description %><br>
