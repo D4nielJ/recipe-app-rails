@@ -1,19 +1,21 @@
 <ul>
   <% @recipes.each do |recipe| %>
-    <li class="recipe_container">
-      <div>
+    <%= link_to recipe_path(recipe) do %>
+      <li class="recipe_container">
         <div>
-          <%= recipe.name %>
+          <div>
+            <%= recipe.name %>
+          </div>
+          <div>
+            By: <%= recipe.user.name %>
+          </div>
         </div>
         <div>
-          By: <%= recipe.user.name %>
+          <div>Total food items: <%= recipe.recipe_foods.count %></div>
+          <div>Total price: $<%= recipe.total_price %></div>
         </div>
-      </div>
-      <div>
-        <div>Total food items: <%= recipe.recipe_foods.count %></div>
-        <div>Total price: $<%= recipe.total_price %></div>
-      </div>
-    </li>
+      </li>
+    <% end %>
   <% end %>
   <% if @recipes.length == 0 %>
     <li>
