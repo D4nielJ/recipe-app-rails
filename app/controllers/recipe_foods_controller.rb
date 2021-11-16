@@ -38,7 +38,7 @@ class RecipeFoodsController < ApplicationController
       render :index
     end
   end
-  
+
   def destroy
     recipe = Recipe.find(params[:recipe_id])
     recipe_food = RecipeFood.find(params[:id])
@@ -52,7 +52,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   private
-  
+
   def recipe_food_params
     params.require(:recipe_food).permit(:quantity, :food_id)
   end
