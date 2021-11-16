@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    @user = current_user
+    @foods = Food.where(user_id: @user.id)
   end
 
   def new
@@ -11,7 +12,7 @@ class FoodsController < ApplicationController
     user = current_user
     food = user.foods.new(food_params)
 
-    if food.save(context: :user)
+    if food.save
       flash[:notice] = 'Ingredient added it correctly'
       redirect_to foods_path
     else
