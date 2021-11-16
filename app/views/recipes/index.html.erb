@@ -4,10 +4,10 @@
     <li class="recipe_container">
       <div>
         <div>
-          <%= recipe.name %>
+          <%= link_to recipe.name, "/recipes/#{recipe.id}" %>
         </div>
         <div>
-          <%= link_to 'REMOVE', "recipes/#{recipe.id}", data: { method: :delete } %>
+          <%= link_to 'REMOVE', "/recipes/#{recipe.id}", data: { method: :delete } %>
         </div>
       </div>
       <div>

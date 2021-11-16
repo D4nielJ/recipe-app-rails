@@ -1,0 +1,9 @@
+<tr>
+  <td><%= food.food.name %></td>
+  <td><%= food.quantity %><%= food.food.measure_unit %></td>
+  <td>$<%= food.food.price %></td>
+  <td>
+    <%= link_to 'Modify', "/recipes/#{@recipe.id}/recipe_foods/#{food.id}/edit" %>
+    <%= link_to 'Remove', "/recipes/#{@recipe.id}/recipe_foods/#{food.id}", method: :delete %>
+  </td>
+</tr>
