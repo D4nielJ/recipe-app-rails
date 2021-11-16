@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
 
   def total_price
     total = 0
-    recipe_foods.each do |ingredient|
+    recipe_foods.each do |ingredient| # N + 1 problem
       total += ingredient.quantity * ingredient.food.price
     end
     total
