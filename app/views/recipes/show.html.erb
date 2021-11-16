@@ -1,1 +1,35 @@
-<p>recipe</p>
+
+<p><<%= @recipe.name %></p>
+<div>
+  <div>
+    <p>Preparation Time:<%= @recipe.preparation_time %>minutes</p>
+    <p>Cooking Time:<%= @recipe.cooking_time %>minutes</p>
+    <p>Steps Go Here...</p>
+  </div>
+  <div>
+    <p>Public:<%= @recipe.public %></p>
+  </div>
+</div>
+<div>
+  <div class="generate_shopping_btn">
+    <%= link_to "Generate shopping list", "#{@recipe.id}" %>
+  </div>
+  <div class="add_ingredient_btn">
+    <%= link_to "Add ingredient", "#{@recipe.id}/recipe_foods/new" %>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <%= render 'foods_row', food: food %>
+    <% end %>
+  </tbody>
+</table>

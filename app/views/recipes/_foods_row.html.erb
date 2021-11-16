@@ -1,0 +1,7 @@
+<tr>
+  <td><%= food.food.name %></td>
+  <td><%= food.quantity %><%= food.food.measure_unit %></td>
+  <td>$<%= food.food.price %></td>
+  <td><%= link_to 'Modify', food_path(food.id), method: :delete %></td>
+  <td><%= link_to 'Remove', food_path(food.id), method: :delete %></td>
+</tr>

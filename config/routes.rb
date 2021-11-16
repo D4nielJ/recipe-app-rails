@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   
   resources :users
   resources :foods
-  resources :recipes
+  resources :recipes do
+    resources :recipe_foods # create -> redirect_to(user, recipe)
+  end
   
-  resources :recipe_foods # create -> redirect_to(user, recipe)
   
   get 'shopping', to: 'shopping#index'
   
