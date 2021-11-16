@@ -32,5 +32,12 @@ RSpec.describe Food, type: :model do
       @food.measure_unit = 'not a valid string'
       expect(@food).to_not be_valid
     end
+
+    it 'should not be valid if food with same name already exists' do
+      @second_food = build(:food)
+      @second_food.name = @food.name
+      @food.save
+      expect(@second_food).to_not be_valid
+    end
   end
 end

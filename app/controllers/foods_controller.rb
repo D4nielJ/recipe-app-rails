@@ -11,7 +11,7 @@ class FoodsController < ApplicationController
     user = current_user
     food = user.foods.new(food_params)
 
-    if food.save
+    if food.save(context: :user)
       flash[:notice] = 'Ingredient added it correctly'
       redirect_to foods_path
     else
