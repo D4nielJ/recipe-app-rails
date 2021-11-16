@@ -4,7 +4,7 @@ class ShoppingController < ApplicationController
   def index
     @recipes = current_user.recipes
 
-    @foods = Food.joins(:recipe_foods).where(user_id: current_user.id)
+    @foods = Food.where(user_id: current_user.id)
 
     @total_price = 0
     @recipes.each do |recipe|

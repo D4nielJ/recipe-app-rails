@@ -1,6 +1,8 @@
 <% qty = RecipeFood.joins(:food).where(food_id: food.id).sum('quantity') # There has to be a better way to do this %>
-<tr>
-  <td><%= food.name %></td>
-  <td><%= qty %></td>
-  <td><%= food.price * qty %></td>
-</tr>
+<% if qty > 0 %>
+  <tr>
+    <td><%= food.name %></td>
+    <td><%= qty %></td>
+    <td><%= food.price * qty %></td>
+  </tr>
+<% end %>
