@@ -1,0 +1,22 @@
+<h1>New ingredient</h1>
+
+<%= form_with model: @food ||= Food.new do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :measure_unit, 'Measurement unit' %><br>
+    <%= f.select :measure_unit, ['Teaspoon (tsp)', 'Cup (c)', 'Unit (u)', 'Milliliter (ml)', 'Litter (l)', 'Milligram (mg)', 'Kilogram (kg)'] %>
+  </div>
+
+  <div>
+    <%= f.label :price, 'Price ($)' %><br>
+    <%= f.number_field :price, step: 0.01 %>
+  </div>
+
+  <div>
+    <%= f.submit 'Add!' %>
+  </div>
+<% end %>

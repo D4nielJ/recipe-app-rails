@@ -1,6 +1,9 @@
 class FoodsController < ApplicationController
+<<<<<<< HEAD
   before_action :authenticate_user!
 
+=======
+>>>>>>> dev
   def index
     @user = current_user
     @foods = Food.where(user_id: @user.id)
