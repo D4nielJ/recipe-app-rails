@@ -1,1 +1,23 @@
-<h1>Hello world</h1>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li class="recipe_container">
+      <div>
+        <div>
+          <%= recipe.name %>
+        </div>
+        <div>
+          By: <%= recipe.user.name %>
+        </div>
+      </div>
+      <div>
+        <div>Total food items: <%= recipe.recipe_foods.count %></div>
+        <div>Total price: $<%= recipe.total_price %></div>
+      </div>
+    </li>
+  <% end %>
+  <% if @recipes.length == 0 %>
+    <li>
+      <h2>There is no recipes yet. Please create one.</h2>
+    </li>
+  <% end %>
+</ul>
