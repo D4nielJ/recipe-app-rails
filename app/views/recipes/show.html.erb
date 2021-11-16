@@ -1,6 +1,6 @@
 
-<p><<%= @recipe.name %></p>
-<div>
+<p><%= @recipe.name %></p>
+<div class="recipe_info_container">
   <div>
     <p>Preparation Time:<%= @recipe.preparation_time %>minutes</p>
     <p>Cooking Time:<%= @recipe.cooking_time %>minutes</p>
@@ -10,15 +10,15 @@
     <p>Public:<%= @recipe.public %></p>
   </div>
 </div>
-<div>
-  <div class="generate_shopping_btn">
-    <%= link_to "Generate shopping list", "#{@recipe.id}" %>
+<div class="recipe_btn_container">
+  <div>
+    <%= link_to "Generate shopping list", "#{@recipe.id}", class: "generate_shopping_btn" %>
   </div>
-  <div class="add_ingredient_btn">
-    <%= link_to "Add ingredient", "#{@recipe.id}/recipe_foods/new" %>
+  <div>
+    <%= link_to "Add ingredient", "#{@recipe.id}/recipe_foods/new", class: "add_ingredient_btn" %>
   </div>
 </div>
-<table>
+<table class="recipe_foods_table">
   <thead>
     <tr>
       <th>Food</th>
