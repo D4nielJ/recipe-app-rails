@@ -1,3 +1,31 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.recipe_container {
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 20px 0;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & > div > a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.add_recipe_btn {
+  border: 2px solid #000;
+  padding: 4px;
+}
+
+.add_recipe_btn:hover {
+  background-color: #000;
+  color: #fff;
+}
