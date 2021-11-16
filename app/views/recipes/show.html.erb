@@ -33,7 +33,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @foods.each do |food| %>
+    <% @foods.includes(:food).each do |food| %>
       <%= render 'foods_row', food: food %>
     <% end %>
   </tbody>
