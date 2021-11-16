@@ -40,14 +40,13 @@ RSpec.describe Food, type: :model do
       @second_food.name = @food.name
       @second_food.user = @food.user
       @food.save
-      expect(@second_food.save(context: second_user)).to eq(false)
+      expect(@second_food).to_not be_valid
     end
 
     it 'should be valid if food with same name exists on other user' do
       @second_food.name = @food.name
-      @food.user = second_user
       @food.save
-      expect(@second_food.save(context: second_user)).to eq(true)
+      expect(@second_food).to be_valid
     end
   end
 end
