@@ -20,13 +20,13 @@ dan = User.create!(
   password_confirmation: 'password'
 )
 
-milk = Food.create!(name: 'milk', measure_unit: 'ml', price: 1.00, user_id: leo.id)
+milk = Food.create!(name: 'milk', measure_unit: 'Milliliter (ml)', price: 1.00, user_id: leo.id)
 
-eggs = Food.create!(name: 'egg', measure_unit: 'unit', price: 0.25, user_id: leo.id)
+eggs = Food.create!(name: 'egg', measure_unit: 'Unit (u)', price: 0.25, user_id: leo.id)
 
-arepa = Food.create!(name: 'arepa', measure_unit: 'unit', price: 0.10, user_id: dan.id)
+arepa = Food.create!(name: 'arepa', measure_unit: 'Unit (u)', price: 0.10, user_id: dan.id)
 
-bread = Food.create!(name: 'bread', measure_unit: 'grams', price: 0.005, user_id: dan.id)
+bread = Food.create!(name: 'bread', measure_unit: 'Kilogram (kg)', price: 0.005, user_id: dan.id)
 
 milk_with_eggs = Recipe.create!(name: 'Milk with Eggs', preparation_time: 5, cooking_time: 15,
                                 description: 'Tasty breakfast', public: true, user_id: leo.id)
