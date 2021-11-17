@@ -1,5 +1,5 @@
 <ul>
-  <% @recipes.each do |recipe| %>
+  <% @recipes.includes(:user).each do |recipe| %>
     <%= link_to recipe_path(recipe) do %>
       <li class="recipe_container">
         <div>
