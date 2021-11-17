@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.form-switch, .form-check {
+  padding-left: 0;
+}
+
+.form-check .form-check-input {
+  float: none;
+  margin-left: 0;
+}

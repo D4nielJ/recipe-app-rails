@@ -9,9 +9,9 @@
     <div>
       <p>Public:<%= @recipe.public %></p>
       <%= form_with model: @recipe, url: "/recipes/#{@recipe.id}", method: :put do |f| %>
-        <div class="custom-control custom-switch">
-          <%= f.label :public, 'Public:', class: "custom-control-label", for: "customSwitch1" %>
-          <%= f.check_box :public, class: "custom-control-input", id: "customSwitch1", onchange: "this.form.submit();" %>
+        <div class="form-check custom-control-right form-switch form-switch-sm">
+          <%= f.label :public, 'Public:', class: "form-check-label", for: "flexSwitchCheckDefault" %>
+          <%= f.check_box :public, class: "form-check-input", id: "flexSwitchCheckDefault", onchange: "this.form.submit();" %>
         </div>
       <% end %>
     </div>
