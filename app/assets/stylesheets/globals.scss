@@ -20,7 +20,7 @@ a:active {
 
 .header {
   display: flex;
-  width: 800px;
+  max-width: 800px;
   margin: 0 auto;
   justify-content: space-between;
   align-items: baseline;
@@ -37,9 +37,4 @@ a:active {
       }
     }
   }
-}
-
-.container {
-  width: 800px;
-  margin: 0 auto;
 }
