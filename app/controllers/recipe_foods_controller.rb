@@ -3,9 +3,9 @@ class RecipeFoodsController < ApplicationController
 
   def new
     user = current_user
-    @foods = Food.where(user_id: user.id)
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.new
+    @recipe_ingredients = @recipe_food.ingredients_recipe(@recipe, user)
   end
 
   def create
