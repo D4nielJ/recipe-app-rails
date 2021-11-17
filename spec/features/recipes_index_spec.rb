@@ -34,7 +34,7 @@ RSpec.describe 'Recipe Index Page', type: :features do
       find('a', text: 'REMOVE').click
       expect(page).to_not have_content(@recipe.name)
       expect(page).to_not have_content(@recipe.description)
-      expect(current_path).to eq("/recipes")
+      expect(current_path).to eq('/recipes')
     end
   end
 end
