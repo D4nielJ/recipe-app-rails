@@ -12,13 +12,38 @@
 
   <body>
     <% if can? :read, current_user %>
-      
+
       <main>
         <%= render 'navbar' %>
-        <%= yield %>
+        <div class="container-lg">
+          <div class="mb-5">
+            <%= yield %>
+          </div>
+          <div class="errors col-5">
+            <% if notice %>
+              <div class="alert alert-success" role="alert">
+                <%= notice %>
+              </div>
+            <% end %>
+            <% if alert %>
+              <div class="alert alert-warning" role="alert">
+                <%= alert %>
+              </div>
+            <% end %>
+            <% flash.each do |type, msg| %>
+              <% if type == 'error' %>
+                <div class="alert alert-danger" role="alert">
+                  <% flash[:error].each do |_k, v| %>
+                    <div>
+                      <%= v.first %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       </main>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
     <% else %>
       <p>You are an alien</p>
     <% end %>

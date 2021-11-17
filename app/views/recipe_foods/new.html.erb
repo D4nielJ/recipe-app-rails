@@ -1,18 +1,24 @@
 <h1>Add ingredient to Recipe</h1>
 
-<%= form_with model: @recipe_food ||= RecipeFood.new, url: "/recipes/#{@recipe.id}/recipe_foods", method: :post do |f| %>
-  <div>
-    <%= f.label :food_id, 'Food' %><br>
-    <% foods_array = @foods.map { |f| [f.name, f.id] } %>
-    <%= f.select(:food_id, options_for_select(foods_array)) %>
-  </div>
+<% if @foods.length != 0 %>
+  <%= form_with model: @recipe_food ||= RecipeFood.new, url: "/recipes/#{@recipe.id}/recipe_foods", method: :post do |f| %>
+    <div>
+      <%= f.label :food_id, 'Food' %><br>
+      <% foods_array = @foods.map { |f| [f.name, f.id] } %>
+      <%= f.select(:food_id, options_for_select(foods_array)) %>
+    </div>
 
-  <div>
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity, min: 0 %>
-  </div>
+    <div>
+      <%= f.label :quantity %><br>
+      <%= f.number_field :quantity, min: 0 %>
+    </div>
 
-  <div>
-    <%= f.submit 'Add!' %>
-  </div>
+    <div>
+      <%= f.submit 'Add!' %>
+    </div>
+  <% end %>
+
+<% else %>
+  <p>You already added all your foods in this recipe. Please create a new food or modify one from this recipe.</p>
+  <%= link_to "Back", "/recipes/#{@recipe.id}" %>
 <% end %>
