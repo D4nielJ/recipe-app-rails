@@ -2,9 +2,10 @@ class RecipeFoodsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    user = current_user
-    @foods = Food.where(user_id: user.id)
     @recipe = Recipe.find(params[:recipe_id])
+    @foods = Food.where('NOT EXISTS (:recipe_foods) AND user_id = (:user_id)',
+                        recipe_foods: RecipeFood.select('1').where('foods.id = recipe_foods.food_id'),
+                        user_id: current_user.id)
     @recipe_food = RecipeFood.new
   end
 
@@ -18,6 +19,8 @@ class RecipeFoodsController < ApplicationController
       redirect_to recipe_path(id: recipe.id)
     else
       flash[:error] = recipe_food.errors.messages
+      @foods = current_user.foods
+      @recipe = recipe
       render :new
     end
   end

@@ -2,8 +2,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, except: :show
 
   def index
-    user = current_user
-    @recipes = Recipe.where(user_id: user.id)
+    @recipes = current_user.recipes
   end
 
   def show
