@@ -8,6 +8,12 @@
   <% if can? :manage, @recipe %>
     <div>
       <p>Public:<%= @recipe.public %></p>
+      <%= form_with model: @recipe, url: "/recipes/#{@recipe.id}", method: :put do |f| %>
+        <div class="custom-control custom-switch">
+          <%= f.label :public, 'Public:', class: "custom-control-label", for: "customSwitch1" %>
+          <%= f.check_box :public, class: "custom-control-input", id: "customSwitch1", onchange: "this.form.submit();" %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
