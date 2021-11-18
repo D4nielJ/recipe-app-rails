@@ -14,7 +14,8 @@
  *= require_self
  */
 
-.form-switch, .form-check {
+.form-switch,
+.form-check {
   padding-left: 0;
 }
 
