@@ -3,9 +3,8 @@ class RecipeFoodsController < ApplicationController
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
-    @foods = Food.where('NOT EXISTS (:recipe_foods) AND user_id = (:user_id)',
-                        recipe_foods: RecipeFood.select('1').where('foods.id = recipe_foods.food_id'),
-                        user_id: current_user.id)
+    used = @recipe.food_used
+    @foods = Food.where(user_id: current_user.id).reject { |food| used.include?(food.name) }
     @recipe_food = RecipeFood.new
   end
 

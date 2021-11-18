@@ -12,4 +12,10 @@ class Recipe < ApplicationRecord
     end
     total
   end
+
+  def food_used()
+    used = Set.new
+    recipe_foods.includes(:food).each { |recipe_food| used.add(recipe_food.food.name) }
+    used
+  end
 end
