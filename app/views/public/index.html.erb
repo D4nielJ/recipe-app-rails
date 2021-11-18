@@ -1,18 +1,21 @@
-<ul>
+<h1 class="mb-5">Public Recipes</h1>
+<ul class="list-group m-4 p-2" style="max-width: 1000px">
   <% @recipes.includes(:user).each do |recipe| %>
     <%= link_to recipe_path(recipe) do %>
-      <li class="recipe_container">
-        <div>
+      <li class="list-group-item list-group-item-action list-group-item-success flex-column align-items-start rounded mb-2 p-3">
+        <div class="d-flex justify-content-between">
           <div>
-            <%= recipe.name %>
+            <div class="h3 text-success">
+              <%= recipe.name %>
+            </div>
+            <div class="h6">
+              By: <%= recipe.user.name %>
+            </div>
           </div>
-          <div>
-            By: <%= recipe.user.name %>
+          <div class="mx-3">
+            <div class="h6">Total food items: <%= recipe.recipe_foods.count %></div>
+            <div class="h6">Total price: $<%= recipe.total_price %></div>
           </div>
-        </div>
-        <div>
-          <div>Total food items: <%= recipe.recipe_foods.count %></div>
-          <div>Total price: $<%= recipe.total_price %></div>
         </div>
       </li>
     <% end %>

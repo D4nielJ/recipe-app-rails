@@ -1,24 +1,20 @@
 <h1>Recipes index</h1>
-<ul>
+<ul class="mt-5">
   <% @recipes.each do |recipe| %>
-    <li class="recipe_container">
-      <div>
-        <div>
-          <%= link_to recipe.name, "/recipes/#{recipe.id}" %>
+    <li class="card mb-3 w-75 border border-success">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h3><%= link_to recipe.name, recipe_path(recipe), class: "card-link text-success" %></h3>
+          <%= link_to 'REMOVE', recipe_path(recipe), data: { method: :delete }, class: "btn btn-outline-danger mx-2" %>
         </div>
-        <div>
-          <%= link_to 'REMOVE', "/recipes/#{recipe.id}", data: { method: :delete } %>
-        </div>
-      </div>
-      <div>
-        <%= recipe.description %>
+        <p class="card-text"><%= recipe.description %></p>
       </div>
     </li>
   <% end %>
   <% if @recipes.length == 0 %>
-    <li>
+    <li class="card  w-75">
       <h2>There is no recipes yet. Please create one.</h2>
     </li>
   <% end %>
 </ul>
-<%= link_to 'Add Recipe', "recipes/new", class: 'add_recipe_btn' %>
+<%= link_to 'Add Recipe', "recipes/new", class: "btn btn-success" %>
