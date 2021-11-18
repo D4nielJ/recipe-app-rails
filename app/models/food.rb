@@ -8,6 +8,4 @@ class Food < ApplicationRecord
             inclusion: { in: ['Teaspoon (tsp)', 'Cup (c)', 'Unit (u)', 'Milliliter (ml)', 'Litter (l)',
                               'Milligram (mg)', 'Kilogram (kg)'] }
   validates :price, numericality: :greater_than_or_equal_to
-
- 
 end

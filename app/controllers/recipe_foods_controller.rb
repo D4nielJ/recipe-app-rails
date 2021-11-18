@@ -15,13 +15,10 @@ class RecipeFoodsController < ApplicationController
 
     if recipe_food.save
       flash[:notice] = 'Ingredient added to recipe'
-      redirect_to recipe_path(id: recipe.id)
     else
       flash[:error] = recipe_food.errors.messages
-      @foods = current_user.foods
-      @recipe = recipe
-      render :new
     end
+    redirect_to recipe_path(id: recipe.id)
   end
 
   def edit
