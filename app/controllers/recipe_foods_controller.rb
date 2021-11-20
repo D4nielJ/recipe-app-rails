@@ -1,10 +1,10 @@
 class RecipeFoodsController < ApplicationController
+  include RecipeFoodsHelper
   before_action :authenticate_user!
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
-    used = @recipe.food_used
-    @foods = Food.where(user_id: current_user.id).reject { |food| used.include?(food.name) }
+    @foods = find_recipe_food_available(@recipe)
     @recipe_food = RecipeFood.new
   end
 
