@@ -1,0 +1,17 @@
+<%= link_to 'Add Food', new_food_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Measurement unit</th>
+      <th>Unit price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <%= render 'foods_row', food: food %>
+    <% end %>
+  </tbody>
+</table>

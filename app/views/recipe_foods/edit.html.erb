@@ -1,0 +1,16 @@
+<h1>Edit ingredient</h1>
+
+<%= form_with model: @recipe_food ||= RecipeFood.new, url: "/recipes/#{@recipe.id}/recipe_foods/#{@recipe_food.id}", method: :put do |f| %>
+  <div>
+    <%= @recipe_food.food.name %>
+  </div>
+
+  <div>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity, min: 0 %>
+  </div>
+
+  <div>
+    <%= f.submit 'Modify!' %>
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+<h1 class="mb-4"><%= @recipe.name %></h1>
+<div class="m-5">
+  <div class="p-2 m-3 border border-success rounded d-flex justify-content-between" style="max-width: 700px">
+    <div class="d-flex flex-column">
+      <p class="h5 text-decoration-underline">Preparation Time:</p>
+      <p class="h6"><%= @recipe.preparation_time %> minutes</p>
+      <p class="h5 mt-1 text-decoration-underline">Cooking Time:</p>
+      <p class="h6"><%= @recipe.cooking_time %> minutes</p>
+      <p class="h5 mt-2 text-decoration-underline">Description:</p>
+      <p> - <%= @recipe.description %></p>
+    </div>
+    <% if can? :manage, @recipe %>
+      <div class="d-flex flex-column">
+        <%= form_with model: @recipe, url: "/recipes/#{@recipe.id}", method: :put do |f| %>
+          <div class="form-check custom-control-right form-switch form-switch-sm mx-3">
+            <%= f.label :public, 'Public:', class: "h5 form-check-label", for: "flexSwitchCheckDefault" %>
+            <%= f.check_box :public, class: "form-check-input", id: "flexSwitchCheckDefault", onchange: "this.form.submit();" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if can? :manage, @recipe %>
+    <div class="m-4">
+      <%= link_to "Add ingredient", "#{@recipe.id}/recipe_foods/new", class: "btn btn-success" %>
+    </div>
+  <% end %>
+  <table class="table table-success table-striped table-hover" style="max-width: 700px">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <% if can? :manage, @recipe %>
+          <th>Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.includes(:food).each do |food| %>
+        <%= render 'foods_row', food: food %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
