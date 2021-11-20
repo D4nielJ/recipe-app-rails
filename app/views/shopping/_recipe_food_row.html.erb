@@ -1,4 +1,4 @@
-<% qty = RecipeFood.joins(:food).where(food_id: food.id).sum('quantity') # There has to be a better way to do this %>
+<% qty = food.quantity_used %>
 <% if qty > 0 %>
   <tr>
     <td><%= food.name %></td>
